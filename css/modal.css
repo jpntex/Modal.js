@@ -67,7 +67,6 @@
         cursor: pointer;
         height: 60px;
         line-height: 60px;
-        -webkit-transition: 0.2s ease-out;
         transition: 0.2s ease-out;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -120,3 +119,5 @@
     opacity: 1; }
   to {
     opacity: 0; } }
+
+/*# sourceMappingURL=modal.css.map */

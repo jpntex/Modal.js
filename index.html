@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Modal.js</title>
+  <!-- fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- page styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+
+  <!-- modal.js style -->
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+  <a href="https://github.com/jpntex/Modal.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+  <div class="header">
+    <h1>Modal.js</h1>
+    <h4>Create confirm/alert modals swiftly</h4>
+    <button id="main-example" class="btn">Click me</button>
+    <ul class="navigation">
+      <li><a href="#examples">See Examples</a></li>
+      <li><a href="#custom">Custom Interfaces</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h4>Modal options</h4>
+      <p>Confirm modal options (default settings)</p>
+
+      <pre><code class="language-javascript">Modal.confirm({
+  title: 'Notification',    // modal title
+  message: '',              // modal message
+  autoOpen: true,           // show modal when declared
+  closeOnEscape: true,      // close when escape key pressed
+  closeOnBlur: true,        // close when overlay is clicked
+  animated: true,           // animate modal
+  buttonClass: '',          // confirm button class
+  buttonLbl: 'OK',          // confirm button label
+  cancelLbl: 'Cancel'       // cancel button label
+  onConfirm: function() {}, // callback if the user confirms
+  onCancel: function() {},  // callback if the modal is closed without the 
+  onClose: function() {},   // callback on modal close, called allways after confirm or cancel
+});</code></pre>
+
+      <p>Alert modal options (default settings)</p>
+
+      <pre><code class="language-javascript">Modal.alert({
+  title: 'Notification',  // modal title
+  message: '',            // modal message
+  autoOpen: true,         // show modal when declared
+  closeOnEscape: true,    // close when escape key pressed
+  closeOnBlur: true,      // close when overlay is clicked
+  animated: true,         // animate modal
+  buttonLbl: 'OK',        // alert button label
+  onClose: function() {}, // callback on modal close
+});</code></pre>
+
+      <p>Helper Methods</p>
+
+      <pre><code class="language-javascript">.open()   // opens the modal
+.close()  // closes the modal</code></pre>
+
+    </div>
+    <h3 id="examples">Examples</h3>
+
+    <div class="card">
+      <h4>Example 1</h4>
+      <pre><code class="language-javascript">Modal.confirm({
+  title: 'Change something',
+  message: 'Are you sure you want to change?'
+});</code></pre>
+      <button id="example1" class="btn">Open Example</button>
+    </div>
+
+    <div class="card">
+      <h4>Example 2</h4>
+      <pre><code class="language-javascript">Modal.alert('Hello!');</code></pre>
+      <button id="example2" class="btn">Open Example</button>
+    </div>
+
+    <div class="card">
+      <h4>Example 3</h4>
+      <p>Confirm Modal with callbacks</p>
+      <pre><code class="language-javascript">Modal.confirm({
+  title: 'Confirm callbacks',
+  message: 'Will you eat your cake?',
+  onConfirm: function() {
+    alert('I will!');
+  },
+  onCancel: function() {
+    alert('Nope!');
+  },
+  onClose: function() {
+    alert('Finally close is called!');
+  }
+});</code></pre>
+      <button id="example3" class="btn">Open Example</button>
+      <p style="margin-top: 10px">The callbacks can be set inline as well (same result as above)</p>
+      <pre><code class="language-javascript">Modal.confirm({
+  title: 'Confirm callbacks',
+  message: 'Will you eat your cake?'
+}, function() {
+  alert('I will!');
+}, function() {
+  alert('Nope!');
+}, function() {
+  alert('Finally close is called!');
+});</code></pre>
+    </div>
+
+    <div class="card">
+      <h4>Example 4</h4>
+      <p>Confirm button preset colors (red, green)</p>
+      <pre><code class="language-javascript">Modal.confirm({
+  title: 'Confirm button color',
+  message: 'Is the cake sweet?',
+  buttonClass: 'green',
+  buttonLbl: 'Yes'
+});</code></pre>
+      <button id="example4" class="btn">Open Example</button>
+    </div>
+
+    <h3 id="custom">Building Custom Interfaces</h3>
+    <div class="card">
+      <h4>Delete Image Example</h4>
+      <p>Easily add custom interfaces to the Modal object for a faster development</p>
+      <pre><code class="language-javascript">Modal.deleteImage = function(imageName) {
+  arguments[0] = {
+    title: 'Delete Image',
+    message: 'Are you sure you want to delete &lt;strong&gt;' + imageName + '&lt;/strong&gt;?',
+    buttonClass: 'red',
+    buttonLbl: 'Delete file'
+  };
+  return Modal.confirm.apply(this, arguments);
+};</code></pre>
+      <p>The effort to call the modal is reduced significantly as seen bellow:</p>
+      <pre><code class="language-javascript">Modal.deleteImage('iPhone5S.jpg', function() {
+  alert('Delete image!');
+});</code></pre>
+      <button id="exampleDelete1" class="btn">Delete Image 1</button>
+      <button id="exampleDelete2" class="btn">Delete Image 2</button>
+    </div>
+
+    <footer>
+      João Teixeira &copy; 2015
+    </footer>
+  </div>
+
+  <script src="js/modal.js"></script>
+  <script src="js/prism.js"></script>
+  <script>
+  function $(id) {
+    return document.getElementById(id);
+  }
+  $('main-example').addEventListener('click', function() {
+    Modal.confirm({
+      title: 'Delete Image',
+      message: 'Are you sure you want to delete <strong>iPhone5S.jpg</strong>?',
+      buttonClass: 'red',
+      buttonLbl: 'Delete file'
+    });
+  });
+  // Example 1
+  $('example1').addEventListener('click', function() {
+    Modal.confirm({
+      title: 'Change something',
+      message: 'Are you sure you want to change?'
+    });
+  });
+  // Example 2
+  $('example2').addEventListener('click', function() {
+    Modal.alert('Hello!');
+  });
+  // Example 3
+  $('example3').addEventListener('click', function() {
+    Modal.confirm({
+      title: 'Confirm callbacks',
+      message: 'Will you eat your cake?',
+      onConfirm: function() {
+        alert('I will!');
+      },
+      onCancel: function() {
+        alert('Nope!');
+      },
+      onClose: function() {
+        alert('Finally close is called!');
+      }
+    });
+  });
+  // Example 4
+  $('example4').addEventListener('click', function() {
+    Modal.confirm({
+      title: 'Confirm button color',
+      message: 'Is the cake sweet?',
+      buttonClass: 'green',
+      buttonLbl: 'Yes'
+    });
+  });
+  // Custom Interface - Delete Image Example
+  Modal.deleteImage = function(imageName) {
+    arguments[0] = {
+      title: 'Delete Image',
+      message: 'Are you sure you want to delete <strong>' + imageName + '</strong>?',
+      buttonClass: 'red',
+      buttonLbl: 'Delete file'
+    };
+    return Modal.confirm.apply(this, arguments);
+  };
+  $("exampleDelete1").addEventListener('click', function() {
+    Modal.deleteImage('iPhone5S.jpg', function() {
+      alert('Delete image 1!');
+    });
+  });
+  $("exampleDelete2").addEventListener('click', function() {
+    Modal.deleteImage('scarlett.jpg', function() {
+      alert('Delete image 2!');
+    });
+  });
+  </script>
+</body>
+
+</html>
