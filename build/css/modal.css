@@ -1,0 +1,122 @@
+/**
+ * Modal.js
+ * @author Joao Teixeira
+ * @version 1.0
+ * Copyright (c) 2015 Joao Teixeira
+ * https://github.com/jpntex
+ */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(24, 26, 26, 0.7);
+  padding: 10px;
+  z-index: 99999;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: opacity; }
+  .modal .modal-box {
+    margin: 50px auto;
+    color: #494C4C;
+    width: 400px;
+    max-width: 100%;
+    border: 1px solid #263545;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 0 26px 4px rgba(0, 0, 0, 0.2); }
+    .modal .modal-box .modal-title {
+      position: relative;
+      padding: 20px 55px 20px 30px;
+      border-bottom: 1px solid #E1E4E5;
+      background-color: #FFFFFF;
+      color: #181A1A;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+      .modal .modal-box .modal-title .close-modal {
+        padding: 8px;
+        position: absolute;
+        font-size: 18px;
+        line-height: 1;
+        top: 13px;
+        right: 22px;
+        font-weight: bold;
+        color: #AAB2B2;
+        cursor: pointer; }
+        .modal .modal-box .modal-title .close-modal:hover {
+          color: #828e8e; }
+    .modal .modal-box .modal-message {
+      text-align: center;
+      padding: 45px 30px;
+      border-bottom: 1px solid #E1E4E5;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+    .modal .modal-box .modal-buttons {
+      font-size: 0.9em; }
+      .modal .modal-box .modal-buttons:before, .modal .modal-box .modal-buttons:after {
+        content: "";
+        display: table; }
+      .modal .modal-box .modal-buttons:after {
+        clear: both; }
+      .modal .modal-box .modal-buttons .modal-btn {
+        float: left;
+        width: 50%;
+        padding: 0 20px;
+        text-align: center;
+        cursor: pointer;
+        height: 60px;
+        line-height: 60px;
+        -webkit-transition: 0.2s ease-out;
+        transition: 0.2s ease-out;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap; }
+        .modal .modal-box .modal-buttons .modal-btn.btn-confirm {
+          font-weight: bold; }
+        .modal .modal-box .modal-buttons .modal-btn.btn-alert {
+          width: 100%; }
+        .modal .modal-box .modal-buttons .modal-btn + .modal-btn {
+          border-left: 1px solid #E1E4E5; }
+        .modal .modal-box .modal-buttons .modal-btn:hover {
+          background-color: #E7EBED; }
+        .modal .modal-box .modal-buttons .modal-btn.red {
+          color: #E34F4F; }
+          .modal .modal-box .modal-buttons .modal-btn.red:hover {
+            color: #fff;
+            background-color: #E34F4F; }
+        .modal .modal-box .modal-buttons .modal-btn.green {
+          color: #2FAF45; }
+          .modal .modal-box .modal-buttons .modal-btn.green:hover {
+            color: #fff;
+            background-color: #2FAF45; }
+  .modal.fadeIn {
+    -webkit-animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.3s ease; }
+  .modal.fadeOut {
+    -webkit-animation: fadeOut 0.2s forwards;
+    animation: fadeOut 0.2s forwards; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }

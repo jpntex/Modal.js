@@ -1,0 +1,19 @@
+{
+  "name": "modal.js",
+  "version": "1.0.0",
+  "description": "Create confirm/alert modals swiftly",
+  "main": "Gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpntex/Modal.js.git"
+  },
+  "author": "Joao Teixeira",
+  "bugs": {
+    "url": "https://github.com/jpntex/Modal.js/issues"
+  },
+  "homepage": "http://jpntex.github.io/Modal.js",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4"
+  }
+}

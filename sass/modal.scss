@@ -1,0 +1,175 @@
+/**
+ * Modal.js
+ * @author Joao Teixeira
+ * @version 1.0
+ * Copyright (c) 2015 Joao Teixeira
+ * https://github.com/jpntex
+ */
+
+@import "variables";
+@import "mixins";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(24, 26, 26, 0.7);
+  padding: 10px;
+  z-index: 99999;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: opacity;
+
+  .modal-box {
+    margin: 50px auto;
+    color: #494C4C;
+    width: 400px;
+    max-width: 100%;
+    border: 1px solid #263545;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 0 26px 4px rgba(0, 0, 0, 0.2);
+
+    .modal-title {
+      position: relative;
+      padding: 20px 55px 20px 30px;
+      border-bottom: 1px solid $inner-border-color;
+      background-color: $title-bg-color;
+      color: $title-color;
+      @include ellipsis;
+
+      .close-modal {
+        padding: 8px;
+        position: absolute;
+        font-size: 18px;
+        line-height: 1;
+        top: 13px;
+        right: 22px;
+        font-weight: bold;
+        color: #AAB2B2;
+        cursor: pointer;
+
+        &:hover {
+          color: darken(#AAB2B2, 15%);
+        }
+      }
+    }
+
+    .modal-message {
+      text-align: center;
+      padding: 45px 30px;
+      border-bottom: 1px solid $inner-border-color;
+      @include ellipsis;
+    }
+
+    .modal-buttons {
+      font-size: 0.9em;
+      @include clearfix;
+
+      .modal-btn {
+        float: left;
+        width: 50%;
+        padding: 0 20px;
+        text-align: center;
+        cursor: pointer;
+        height: $button-height;
+        line-height: $button-height;
+        -webkit-transition: 0.2s ease-out;
+        transition: 0.2s ease-out;
+        @include ellipsize;
+
+        &.btn-confirm {
+          font-weight: bold;
+        }
+
+        &.btn-alert {
+          width: 100%;
+        }
+
+        + .modal-btn {
+          border-left: 1px solid $inner-border-color;
+        }
+
+        &:hover {
+          background-color: #E7EBED;
+        }
+
+        // modal buttons color presets
+        &.red {
+          color: $red;
+
+          &:hover {
+            color: #fff;
+            background-color: $red;
+          }
+        }
+
+        &.green {
+          color: $green;
+
+          &:hover {
+            color: #fff;
+            background-color: $green;
+          }
+        }
+      }
+    }
+  }
+
+  // modal animations
+  &.fadeIn {
+    -webkit-animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.3s ease;
+  }
+
+  &.fadeOut {
+    -webkit-animation: fadeOut 0.2s forwards;
+    animation: fadeOut 0.2s forwards;
+  }
+}
+
+// animations
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
