@@ -142,7 +142,6 @@ var Modal = (function() {
     // attach events listeners
     this.modal.addEventListener('click', this);
     document.onkeyup = this.handleEvent.bind(this);
-    document.addEventListener('backbutton', this);
 
     return this;
   };
@@ -152,7 +151,6 @@ var Modal = (function() {
     // clean events listeners
     this.modal.removeEventListener('click', this);
     document.onkeyup = null;
-    document.removeEventListener('backbutton', this);
 
     if (this.options.animated) {
       this.modal.addEventListener('animationend', this);
