@@ -1,8 +1,8 @@
-var gulp = require('gulp'),
-  sass = require('gulp-sass');
+const { src, dest } = require('gulp');
+const sass = require('gulp-sass');
 
-gulp.task('default', function() {
-  gulp.src('sass/modal.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('./build/css/'));
-});
+exports.default = () => {
+  return src('sass/modal.scss')
+  .pipe(sass())
+  .pipe(dest('./build/css/'));
+};

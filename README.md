@@ -2,7 +2,7 @@
 Create confirm/alert modals swiftly!
 
 ### Check out the examples page:
-[http://jpntex.github.io/Modal.js/](http://jpntex.com/Modal.js/ "Examples")
+[https://jpntex.github.io/Modal.js/](https://jpntex.github.io/Modal.js/ "Examples")
 
 ## How To Use
 ```html
@@ -46,7 +46,7 @@ Modal.alert({
 
 ## License
 ```
-Copyright (c) 2015 João Teixeira
+Copyright (c) João Teixeira
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
